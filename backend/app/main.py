@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routes import health, predict
+from .routes import health, predict, predict_multi
 
 app = FastAPI(title = "AI Meal Calorie Estimator")
 
@@ -16,3 +16,4 @@ app.add_middleware(
 
 app.include_router(health.router, prefix = "")
 app.include_router(predict.router, prefix = "")
+app.include_router(predict_multi.router, prefix = "")
